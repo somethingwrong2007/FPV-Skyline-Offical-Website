@@ -351,7 +351,12 @@
             font-size: 0.9rem;
             
         }
-        .feature-block-image i {
+        .feature-block-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
             font-size: 3rem;
             margin-bottom: 0.5rem;
             opacity: 0.3;
@@ -1239,10 +1244,7 @@
         
             <div class="feature-block">
                 <div class="feature-block-image">
-                    <div style="text-align:center;">
-                        <i class='bx bx-shape-polygon'></i>
-                        <div data-i18n="feat_layout_img">多布局示意图</div>
-                    </div>
+                    <img src="ModEditor.png" alt="多布局示意图" class="feature-block-img">
                 </div>
                 <div class="feature-block-content">
                     <span class="feature-block-tag" data-i18n="feat_layout_tag">LAYOUT</span>
