@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPV Skyline</title>
+    <link rel="icon" type="image/png" href="assets/images/BigIcon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
@@ -71,7 +72,7 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
             font-weight: 700;
             font-size: 1.1rem;
             letter-spacing: -0.02em;
@@ -81,9 +82,10 @@
         .nav-brand .nav-brand-skyline {
             color: var(--accent);
         }
-        .nav-brand i {
-            font-size: 1.3rem;
-            color: var(--accent);
+        .nav-brand-icon {
+            width: 1.6rem;
+            height: 1.6rem;
+            display: block;
         }
         .nav-links {
             display: flex;
@@ -591,6 +593,10 @@
         }
         .aerovoxel-item {
             padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
         }
         .aerovoxel-item-number {
             font-family: 'JetBrains Mono', monospace;
@@ -599,6 +605,7 @@
             color: var(--text-muted);
             margin-bottom: 0.75rem;
             display: block;
+            width: 100%;
         }
         .aerovoxel-item h4 {
             font-size: 1.1rem;
@@ -607,6 +614,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            width: 100%;
+            min-height: 1.8em;
         }
         .aerovoxel-item h4 i {
             color: var(--accent);
@@ -616,6 +625,13 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.6;
+            min-height: 4.8em;
+            width: 100%;
+            flex: 1;
+        }
+        .aerovoxel-visual {
+            margin-top: 1.5rem;
+            width: 100%;
         }
 
         /* Physics Cards */
@@ -781,9 +797,10 @@
             color: var(--text-primary);
             text-decoration: none;
         }
-        .footer-brand i {
-            color: var(--accent);
-            font-size: 1.3rem;
+        .footer-brand-icon {
+            width: 1.3rem;
+            height: 1.3rem;
+            display: block;
         }
         .footer-links {
             display: flex;
@@ -871,6 +888,9 @@
             }
             .aerovoxel-grid {
                 grid-template-columns: 1fr;
+            }
+            .aerovoxel-item p {
+                min-height: auto;
             }
             .aerovoxel-comparison {
                 padding: 0 1rem;
@@ -1246,13 +1266,12 @@
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <a href="#" class="nav-brand">
+            <img src="assets/images/BigIcon.png" alt="FPV Skyline" class="nav-brand-icon">
             FPV <span class="nav-brand-skyline">Skyline</span>
         </a>
         <div class="nav-links">
             <a href="#features" class="nav-link" data-i18n="nav_features">功能</a>
-            <a href="#physics" class="nav-link" data-i18n="nav_physics">物理</a>
-            <a href="#showcase" class="nav-link" data-i18n="nav_experience">体验</a>
-            <a href="#specs" class="nav-link" data-i18n="nav_specs">配置</a>
+            <a href="#physics" class="nav-link" data-i18n="nav_physics">Flow 物理</a>
             <a href="#roadmap" class="nav-link" data-i18n="nav_roadmap">更新路线图</a>
             <a href="https://b23.tv/szmZsx2" target="_blank" class="nav-link" data-i18n="nav_community">社区</a>
             <a href="https://bugnet.io/roadmap/0e4f84-fpvskyline" target="_blank" class="nav-link" data-i18n="nav_bugnet">Bug 追踪</a>
@@ -1266,9 +1285,7 @@
         </div>
         <div class="mobile-menu" id="mobileMenu">
             <a href="#features" class="mobile-menu-link" data-i18n="nav_features">功能</a>
-            <a href="#physics" class="mobile-menu-link" data-i18n="nav_physics">物理</a>
-            <a href="#showcase" class="mobile-menu-link" data-i18n="nav_experience">体验</a>
-            <a href="#specs" class="mobile-menu-link" data-i18n="nav_specs">配置</a>
+            <a href="#physics" class="mobile-menu-link" data-i18n="nav_physics">Flow 物理</a>
             <a href="#roadmap" class="mobile-menu-link" data-i18n="nav_roadmap">更新路线图</a>
             <a href="https://store.steampowered.com/app/4244680/FPV_Skyline/" target="_blank" class="mobile-menu-link" data-i18n="hero_steam">Steam 下载</a>
             <a href="https://bugnet.io/roadmap/0e4f84-fpvskyline" target="_blank" class="mobile-menu-link" data-i18n="nav_bugnet">Bug 追踪</a>
@@ -1380,7 +1397,7 @@
                     </p>
                     <ul class="feature-block-list">
                         <li><i class='bx bx-check'></i> <span data-i18n="feat_in_li1">输入与渲染分离</span></li>
-                        <li><i class='bx bx-check'></i> <span data-i18n="feat_in_li2">支持 240Hz 显示</span></li>
+                        <li><i class='bx bx-check'></i> <span data-i18n="feat_in_li2">1000Hz 刷新输入</span></li>
                         <li><i class='bx bx-check'></i> <span data-i18n="feat_in_li3">手柄与遥控器即插即用</span></li>
                     </ul>
                 </div>
@@ -1502,7 +1519,7 @@
                     <div class="aerovoxel-item">
                         <span class="aerovoxel-item-number">04</span>
                         <h4 data-i18n="aero_4_title"><i class='bx bx-crosshair'></i> 质心与转动惯量</h4>
-                        <p data-i18n="aero_4_desc">基于体素化网格自动计算质量分布、质心位置与转动惯量张量，无需手动输入物理参数，确保刚体动力学模拟的准确性。</p>
+                        <p data-i18n="aero_4_desc">基于体素化网格自动计算质量分布、质心位置与转动惯量张量。</p>
                         <div class="aerovoxel-visual">
                             <div class="inertia-demo">
                                 <div class="inertia-center"></div>
@@ -1748,7 +1765,6 @@
         <div class="section-inner">
             <h2 class="cta-title" data-i18n="cta_title">准备好起飞了吗？</h2>
             <p class="cta-desc" data-i18n="cta_desc">
-                1000Hz 物理模拟与飞控系统，还原真实操控手感。
             </p>
             <div class="hero-buttons">
                 <a href="https://store.steampowered.com/app/4244680/FPV_Skyline/" target="_blank" class="btn-primary">
@@ -1767,7 +1783,7 @@
     <footer class="footer">
         <div class="footer-inner">
             <a href="#" class="footer-brand">
-                <i class='bx bx-paper-plane'></i>
+                <img src="assets/images/BigIcon.png" alt="FPV Skyline" class="footer-brand-icon">
                 FPV Skyline
             </a>
             <div class="footer-links">
@@ -2002,7 +2018,7 @@
         var translations = {
             zh: {
                 nav_features: '功能',
-                nav_physics: '物理',
+                nav_physics: 'Flow 物理',
                 nav_experience: '体验',
                 nav_specs: '配置',
                 nav_roadmap: '更新路线图',
@@ -2031,7 +2047,7 @@
                 feat_in_title: '低延迟高刷新',
                 feat_in_desc: '输入与渲染分离，遥控器指令直接在 1000Hz 物理线程中读取，操控响应与画面帧率解耦。',
                 feat_in_li1: '输入与渲染分离',
-                feat_in_li2: '支持 240Hz 显示',
+                feat_in_li2: '1000Hz 刷新输入',
                 feat_in_li3: '手柄与遥控器即插即用',
                 feat_ed_tag: '编辑器',
                 feat_ed_title: '高度可自定义',
@@ -2058,7 +2074,7 @@
                 aero_3_title: '<i class="bx bx-shield-quarter"></i> 碰撞检测代理',
                 aero_3_desc: '体素化网格直接作为 Chaos 物理引擎的碰撞代理体，支持复杂几何的精确碰撞检测。',
                 aero_4_title: '<i class="bx bx-crosshair"></i> 质心与转动惯量',
-                aero_4_desc: '基于体素化网格自动计算质量分布、质心位置与转动惯量张量，无需手动输入物理参数，确保刚体动力学模拟的准确性。',
+                aero_4_desc: '基于体素化网格自动计算质量分布、质心位置与转动惯量张量。',
                 aero_compare_label: 'AEROVOXEL 效果对比',
                 aero_compare_title: '体素化前后',
                 aero_compare_desc: '拖动滑块查看 AeroVoxel 实时体素化代理生成效果',
@@ -2111,7 +2127,7 @@
                 road_3_title: '天气与季节系统',
                 road_3_desc: '动态天气与季节变化。',
                 cta_title: '准备好起飞了吗？',
-                cta_desc: '1000Hz 物理模拟与飞控系统，还原真实操控手感。',
+                cta_desc: '',
                 cta_steam: '立即下载',
                 cta_demo: '观看演示',
                 feat_fc_img: '飞控系统示意图',
@@ -2129,7 +2145,7 @@
             },
             en: {
                 nav_features: 'Features',
-                nav_physics: 'Physics',
+                nav_physics: 'Flow Physics',
                 nav_experience: 'Experience',
                 nav_specs: 'Specs',
                 nav_roadmap: 'Roadmap',
@@ -2158,7 +2174,7 @@
                 feat_in_title: 'Low Latency High Refresh',
                 feat_in_desc: 'Input and rendering separated, transmitter commands read directly in the independent 1000Hz physics thread. Control response decoupled from frame rate.',
                 feat_in_li1: 'Input & Rendering Separation',
-                feat_in_li2: '240Hz Display Support',
+                feat_in_li2: '1000Hz Input Refresh',
                 feat_in_li3: 'Plug & Play Controllers',
                 feat_ed_tag: 'EDITOR',
                 feat_ed_title: 'Highly Customizable',
@@ -2238,7 +2254,7 @@
                 road_3_title: 'Weather & Season System',
                 road_3_desc: 'Dynamic weather and seasonal changes.',
                 cta_title: 'Ready to Take Off?',
-                cta_desc: '1000Hz physics simulation and flight control system, restoring authentic control feel.',
+                cta_desc: '',
                 cta_steam: 'Download Now',
                 cta_demo: 'Watch Demo',
                 feat_fc_img: 'Flight Control Diagram',
