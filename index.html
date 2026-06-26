@@ -131,7 +131,7 @@
         }
         .hero-brand {
             position: fixed;
-            top: 40%;
+            top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: clamp(5rem, 16vw, 14rem);
@@ -158,6 +158,33 @@
         }
         .hero-brand-skyline {
             color: var(--accent);
+        }
+        .hero-logos-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 0.6em;
+        }
+        .hero-logo-steam {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+        }
+        .hero-logo-steam-icon {
+            width: 42px;
+            height: 42px;
+            display: block;
+        }
+        .hero-logo-bf-icon {
+            width: clamp(140px, 18vw, 240px);
+            height: auto;
+            display: block;
         }
         @media (max-width: 768px) {
             .hero-brand {
@@ -1062,6 +1089,7 @@
             <a href="#specs" class="nav-link" data-i18n="nav_specs">配置</a>
             <a href="#roadmap" class="nav-link" data-i18n="nav_roadmap">更新路线图</a>
             <a href="https://b23.tv/szmZsx2" target="_blank" class="nav-link" data-i18n="nav_community">社区</a>
+            <a href="https://bugnet.io/roadmap/0e4f84-fpvskyline" target="_blank" class="nav-link" data-i18n="nav_bugnet">Bug 追踪</a>
             <button class="lang-toggle" id="langToggle" title="切换语言">中 / EN</button>
         </div>
         <div class="mobile-actions">
@@ -1075,8 +1103,9 @@
             <a href="#physics" class="mobile-menu-link" data-i18n="nav_physics">物理</a>
             <a href="#showcase" class="mobile-menu-link" data-i18n="nav_experience">体验</a>
             <a href="#specs" class="mobile-menu-link" data-i18n="nav_specs">配置</a>
-            <a href="#roadmap" class="mobile-menu-link">计划</a>
-            <a href="https://store.steampowered.com/app/4244680/FPV_Skyline/" target="_blank" class="mobile-menu-link">Steam 下载</a>
+            <a href="#roadmap" class="mobile-menu-link" data-i18n="nav_roadmap">更新路线图</a>
+            <a href="https://store.steampowered.com/app/4244680/FPV_Skyline/" target="_blank" class="mobile-menu-link" data-i18n="hero_steam">Steam 下载</a>
+            <a href="https://bugnet.io/roadmap/0e4f84-fpvskyline" target="_blank" class="mobile-menu-link" data-i18n="nav_bugnet">Bug 追踪</a>
             <a href="https://b23.tv/szmZsx2" target="_blank" class="mobile-menu-link" data-i18n="nav_community">社区</a>
         </div>
     </nav>
@@ -1085,6 +1114,15 @@
     <section class="hero" id="hero">
         <div class="hero-brand" id="heroBrand">
             <span class="hero-brand-fpv">FPV</span><span class="hero-brand-skyline">Skyline</span>
+            <div class="hero-logos-row">
+                <div class="hero-logo-steam">
+                    <img src="steamlogo.svg" alt="Steam" class="hero-logo-steam-icon">
+                    <span>Steam</span>
+                </div>
+                <div class="hero-logo-bf">
+                    <img src="bf_logo_black.svg" alt="Betaflight" class="hero-logo-bf-icon">
+                </div>
+            </div>
         </div>
         <div class="hero-content" id="heroContent">
             <h1 class="hero-title" data-i18n="hero_title">
@@ -1119,7 +1157,7 @@
                 <div class="feature-block-image">
                     <div style="text-align:center;">
                         <i class='bx bx-cog'></i>
-                        <div>飞控系统示意图</div>
+                        <div data-i18n="feat_fc_img">飞控系统示意图</div>
                     </div>
                 </div>
                 <div class="feature-block-content">
@@ -1131,7 +1169,7 @@
                     <ul class="feature-block-list">
                         <li><i class='bx bx-check'></i> <span data-i18n="feat_fc_li1">1000Hz 更新频率</span></li>
                         <li><i class='bx bx-check'></i> <span data-i18n="feat_fc_li2">支持 Betaflight 配置导入</span></li>
-                        <li><i class='bx bx-check'></i>  rates 曲线自定义</li>
+                        <li><i class='bx bx-check'></i> <span data-i18n="feat_fc_li3"> rates 曲线自定义</span></li>
                     </ul>
                 </div>
             </div>
@@ -1140,7 +1178,7 @@
                 <div class="feature-block-image">
                     <div style="text-align:center;">
                         <i class='bx bx-atom'></i>
-                        <div>物理引擎示意图</div>
+                        <div data-i18n="feat_ph_img">物理引擎示意图</div>
                     </div>
                 </div>
                 <div class="feature-block-content">
@@ -1161,7 +1199,7 @@
                 <div class="feature-block-image">
                     <div style="text-align:center;">
                         <i class='bx bx-transfer'></i>
-                        <div>输入延迟示意图</div>
+                        <div data-i18n="feat_in_img">输入延迟示意图</div>
                     </div>
                 </div>
                 <div class="feature-block-content">
@@ -1182,7 +1220,7 @@
                 <div class="feature-block-image">
                     <div style="text-align:center;">
                         <i class='bx bx-palette'></i>
-                        <div>编辑器示意图</div>
+                        <div data-i18n="feat_ed_img">编辑器示意图</div>
                     </div>
                 </div>
                 <div class="feature-block-content">
@@ -1203,7 +1241,7 @@
                 <div class="feature-block-image">
                     <div style="text-align:center;">
                         <i class='bx bx-shape-polygon'></i>
-                        <div>多布局示意图</div>
+                        <div data-i18n="feat_layout_img">多布局示意图</div>
                     </div>
                 </div>
                 <div class="feature-block-content">
@@ -1229,7 +1267,7 @@
             <div class="physics-hero">
                 <div class="section-label" data-i18n="physics_label">物理系统</div>
                 <h2 class="section-title" data-i18n="physics_title">Flow 物理引擎</h2>
-                <p class="section-desc">
+                <p class="section-desc" data-i18n="physics_desc">
                     Flow 是基于实测数据与学术模型构建的高保真物理引擎。
                 </p>
             </div>
@@ -1239,7 +1277,7 @@
                 <div class="aerovoxel-featured-header">
                     <span class="aerovoxel-featured-label" data-i18n="aero_label">FLOW / AEROVOXEL</span>
                     <h3 class="aerovoxel-featured-title" data-i18n="aero_title">AeroVoxel</h3>
-                    <p class="aerovoxel-featured-desc">
+                    <p class="aerovoxel-featured-desc" data-i18n="aero_desc">
                         自动将几何模型转换为体素网格，驱动空气动力学模拟与 Chaos 碰撞检测。自动计算质心与转动惯量。
                     </p>
                 </div>
@@ -1319,11 +1357,11 @@
             <!-- Physics Modules -->
             <div class="physics-cards">
                 <div class="physics-card fade-in">
-                    <div class="physics-card-header">
+                    <div class="physics-card-header" data-i18n="phys_1_title">
                         <i class='bx bx-timer'></i>
                         1000Hz 飞控模拟
                     </div>
-                    <p class="physics-card-desc">
+                    <p class="physics-card-desc" data-i18n="phys_1_desc">
                         飞控与物理模拟均以 1000Hz 运行。PID 控制器、滤波器与电机输出均按真实飞控逻辑计算。
                     </p>
                     <div class="physics-card-tags">
@@ -1333,11 +1371,11 @@
                     </div>
                 </div>
                 <div class="physics-card fade-in">
-                    <div class="physics-card-header">
+                    <div class="physics-card-header" data-i18n="phys_2_title">
                         <i class='bx bx-wind'></i>
                         螺旋桨空气动力学
                     </div>
-                    <p class="physics-card-desc">
+                    <p class="physics-card-desc" data-i18n="phys_2_desc">
                         基于实测数据构建螺旋桨数据库，查表获取前进比 J、推力系数 CT、阻力系数 CP 等气动参数。支持 5 寸、2.5 寸、65mm、31mm 等桨叶尺寸。
                     </p>
                     <div class="physics-card-tags">
@@ -1347,11 +1385,11 @@
                     </div>
                 </div>
                 <div class="physics-card fade-in">
-                    <div class="physics-card-header">
+                    <div class="physics-card-header" data-i18n="phys_3_title">
                         <i class='bx bx-bolt-circle'></i>
                         电机数据库模型
                     </div>
-                    <p class="physics-card-desc">
+                    <p class="physics-card-desc" data-i18n="phys_3_desc">
                         基于 KV 值、内阻与功率-扭矩关系的电机模型，扭矩输出按实测数据拟合。涵盖 2207、1404、1102 等主流电机规格。
                     </p>
                     <div class="physics-card-tags">
@@ -1361,11 +1399,11 @@
                     </div>
                 </div>
                 <div class="physics-card fade-in">
-                    <div class="physics-card-header">
+                    <div class="physics-card-header" data-i18n="phys_4_title">
                         <i class='bx bx-cube'></i>
                         刚体动力学
                     </div>
-                    <p class="physics-card-desc">
+                    <p class="physics-card-desc" data-i18n="phys_4_desc">
                         底层基于虚幻引擎 Chaos 物理引擎，质心与转动惯量由 AeroVoxel 实时体素化代理生成（输入质量即可）。还原高速机动、急转弯与碰撞时的惯性响应。
                     </p>
                     <div class="physics-card-tags">
@@ -1385,7 +1423,7 @@
                 <div class="feature-block-image">
                     <div style="text-align:center;">
                         <i class='bx bx-game'></i>
-                        <div>游戏画面</div>
+                        <div data-i18n="show_img">游戏画面</div>
                     </div>
                 </div>
                 <div class="feature-block-content">
@@ -1414,7 +1452,7 @@
             </p>
             <div class="specs-grid">
                 <div class="spec-card">
-                    <div class="spec-card-header">
+                    <div class="spec-card-header" data-i18n="spec_min">
                         <i class='bx bx-chevron-right'></i>
                         最低配置
                     </div>
@@ -1436,15 +1474,15 @@
                     </div>
                     <div class="spec-row">
                         <span class="spec-label" data-i18n="spec_dx">DirectX</span>
-                        <span class="spec-value">版本 12</span>
+                        <span class="spec-value" data-i18n="spec_dx_val">版本 12</span>
                     </div>
                     <div class="spec-row">
                         <span class="spec-label" data-i18n="spec_storage">存储空间</span>
-                        <span class="spec-value">10 GB 可用空间</span>
+                        <span class="spec-value" data-i18n="spec_storage_val">10 GB 可用空间</span>
                     </div>
                 </div>
                 <div class="spec-card">
-                    <div class="spec-card-header">
+                    <div class="spec-card-header" data-i18n="spec_rec">
                         <i class='bx bx-trophy'></i>
                         推荐配置
                     </div>
@@ -1466,11 +1504,11 @@
                     </div>
                     <div class="spec-row">
                         <span class="spec-label" data-i18n="spec_dx">DirectX</span>
-                        <span class="spec-value">版本 12</span>
+                        <span class="spec-value" data-i18n="spec_dx_val">版本 12</span>
                     </div>
                     <div class="spec-row">
                         <span class="spec-label" data-i18n="spec_storage">存储空间</span>
-                        <span class="spec-value">10 GB 可用空间</span>
+                        <span class="spec-value" data-i18n="spec_storage_val">10 GB 可用空间</span>
                     </div>
                 </div>
             </div>
@@ -1545,10 +1583,10 @@
                 FPV Skyline
             </a>
             <div class="footer-links">
-                <a href="https://b23.tv/szmZsx2" target="_blank" class="footer-link">哔哩哔哩</a>
-                <a href="https://youtube.com/@fpvskyline?si=vlTUUu3cply-FHEA" target="_blank" class="footer-link">YouTube</a>
-                <a href="https://v.douyin.com/bmSCwCTyAYA/" target="_blank" class="footer-link">抖音</a>
-                <a href="https://steamcommunity.com/app/4244710" target="_blank" class="footer-link">Steam 社区</a>
+                <a href="https://b23.tv/szmZsx2" target="_blank" class="footer-link" data-i18n="footer_bili">哔哩哔哩</a>
+                <a href="https://youtube.com/@fpvskyline?si=vlTUUu3cply-FHEA" target="_blank" class="footer-link" data-i18n="footer_youtube">YouTube</a>
+                <a href="https://v.douyin.com/bmSCwCTyAYA/" target="_blank" class="footer-link" data-i18n="footer_douyin">抖音</a>
+                <a href="https://steamcommunity.com/app/4244710" target="_blank" class="footer-link" data-i18n="footer_steam">Steam 社区</a>
             </div>
             <div class="footer-copy" data-i18n="footer_copy">QXNY Studio. FPV Skyline 开发中。</div>
         </div>
@@ -1772,6 +1810,7 @@
                 nav_specs: '配置',
                 nav_roadmap: '更新路线图',
                 nav_community: '社区',
+                nav_bugnet: 'Bug 追踪',
                 hero_title: '真实飞行<br><span class="accent">即刻开始</span>',
                 hero_desc: '基于虚幻引擎 Chaos 物理与 1000Hz 飞控模拟，还原真实操控手感。连接遥控器，即刻起飞。',
                 hero_steam: 'Steam 下载',
@@ -1779,31 +1818,31 @@
                 features_label: '核心功能',
                 features_title: '为飞行而生',
                 features_desc: '从飞控模拟到赛道编辑，每一个细节都经过打磨，只为提供纯粹的飞行体验。',
-                feat_fc_tag: 'FLIGHT CONTROL',
+                feat_fc_tag: '飞控系统',
                 feat_fc_title: '完整飞控模拟',
                 feat_fc_desc: '内置完整飞控系统，无需复杂参数调校即可获得真实操控反馈。PID、滤波器与电机输出均按真实飞控逻辑计算。',
                 feat_fc_li1: '1000Hz 更新频率',
                 feat_fc_li2: '支持 Betaflight 配置导入',
                 feat_fc_li3: 'rates 曲线自定义',
-                feat_ph_tag: 'PHYSICS',
+                feat_ph_tag: '物理引擎',
                 feat_ph_title: '精确物理引擎',
                 feat_ph_desc: '基于虚幻引擎 Chaos 物理系统，还原空气动力学、惯性与重力对穿越机的影响。桨叶气动数据来自实测数据库。',
                 feat_ph_li1: '数据库查表',
                 feat_ph_li2: '多尺寸桨叶支持（5"/2.5"/65mm/31mm）',
                 feat_ph_li3: '电机 KV 值扭矩拟合',
-                feat_in_tag: 'INPUT',
+                feat_in_tag: '输入系统',
                 feat_in_title: '低延迟高刷新',
                 feat_in_desc: '输入与渲染分离，遥控器指令直接在 1000Hz 物理线程中读取，操控响应与画面帧率解耦。',
                 feat_in_li1: '输入与渲染分离',
                 feat_in_li2: '支持 240Hz 显示',
                 feat_in_li3: '手柄与遥控器即插即用',
-                feat_ed_tag: 'EDITOR',
+                feat_ed_tag: '编辑器',
                 feat_ed_title: '高度可自定义',
                 feat_ed_desc: '提供多种编辑器，自由设计无人机、赛道与飞行环境。支持自定义模型导入。',
                 feat_ed_li1: '赛道编辑器',
                 feat_ed_li2: '无人机配置器',
                 feat_ed_li3: '自定义模型导入',
-                feat_layout_tag: 'LAYOUT',
+                feat_layout_tag: '机架布局',
                 feat_layout_title: '多布局穿越机',
                 feat_layout_desc: '支持模拟 X 型、H 型、死猫型等多种机架布局的穿越机。不同布局的重心分布、惯性特性与气动表现均按真实物理计算，每种布局都有独特的操控手感。',
                 feat_layout_li1: 'X 型 / H 型 / 死猫型',
@@ -1848,7 +1887,7 @@
                 phys_4_tag1: 'Chaos 物理',
                 phys_4_tag2: '转动惯量',
                 phys_4_tag3: '碰撞响应',
-                show_tag: 'EXPERIENCE',
+                show_tag: '飞行体验',
                 show_title: '沉浸飞行体验',
                 show_desc: '无论是练习场磨练技术，还是赛道挑战极限，都能带来沉浸的飞行体验。',
                 show_li1: '无需复杂配置，开箱即飞',
@@ -1878,6 +1917,17 @@
                 cta_desc: '1000Hz 物理模拟与飞控系统，还原真实操控手感。',
                 cta_steam: '立即下载',
                 cta_demo: '观看演示',
+                feat_fc_img: '飞控系统示意图',
+                feat_ph_img: '物理引擎示意图',
+                feat_in_img: '输入延迟示意图',
+                feat_ed_img: '编辑器示意图',
+                feat_layout_img: '多布局示意图',
+                show_img: '游戏画面',
+                spec_dx_val: '版本 12',
+                spec_storage_val: '10 GB 可用空间',
+                footer_bili: '哔哩哔哩',
+                footer_douyin: '抖音',
+                footer_steam: 'Steam 社区',
                 footer_copy: 'QXNY Studio. FPV Skyline 开发中。'
             },
             en: {
@@ -1887,6 +1937,7 @@
                 nav_specs: 'Specs',
                 nav_roadmap: 'Roadmap',
                 nav_community: 'Community',
+                nav_bugnet: 'Bug Tracker',
                 hero_title: 'Real Flight<br><span class="accent">Starts Now</span>',
                 hero_desc: 'Based on Unreal Engine Chaos physics and 1000Hz flight control simulation, restoring authentic control feel. Connect your transmitter and take off.',
                 hero_steam: 'Steam Download',
@@ -1993,6 +2044,17 @@
                 cta_desc: '1000Hz physics simulation and flight control system, restoring authentic control feel.',
                 cta_steam: 'Download Now',
                 cta_demo: 'Watch Demo',
+                feat_fc_img: 'Flight Control Diagram',
+                feat_ph_img: 'Physics Engine Diagram',
+                feat_in_img: 'Input Latency Diagram',
+                feat_ed_img: 'Editor Diagram',
+                feat_layout_img: 'Multi-Layout Diagram',
+                show_img: 'Gameplay',
+                spec_dx_val: 'Version 12',
+                spec_storage_val: '10 GB available space',
+                footer_bili: 'Bilibili',
+                footer_douyin: 'TikTok',
+                footer_steam: 'Steam Community',
                 footer_copy: 'QXNY Studio. FPV Skyline in development.'
             }
         };
