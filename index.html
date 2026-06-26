@@ -388,6 +388,116 @@
             margin-bottom: 0.5rem;
             opacity: 0.3;
         }
+        .feature-block-image .fc-bf-logo {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        }
+        /* Showcase Visual */
+        /* removed - replaced with HUD.png */
+        /* Input Decoupling Visual */
+        .input-decoupling-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            background: var(--bg-tertiary);
+        }
+        .input-decoupling-visual .input-decoupling-icon {
+            font-size: 3.5rem;
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
+            margin-bottom: 8px;
+            animation: iconPulse 1.5s ease-in-out infinite;
+            opacity: 1;
+        }
+        .input-rail {
+            margin-top: 50px;
+        }
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .input-rail, .render-rail {
+            position: relative;
+            width: 80%;
+            height: 3px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 2px;
+        }
+        .input-signal {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-glow);
+            animation: signalFast 0.5s linear infinite;
+        }
+        .input-separator {
+            width: 70%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+        }
+        .render-frame {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 5px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 2px;
+            animation: frameSlow 3s linear infinite;
+        }
+        @keyframes signalFast {
+            0% { left: 0; }
+            100% { left: 100%; }
+        }
+        @keyframes frameSlow {
+            0% { left: 0; }
+            100% { left: calc(100% - 22px); }
+        }
+        .flow-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #0a0a0a;
+        }
+        .flow-text {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            background: linear-gradient(135deg, #ffffff 30%, #4a9eff 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 2;
+            position: relative;
+        }
+        .flow-streak {
+            position: absolute;
+            left: -20%;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: flowStreakMove 3s linear infinite;
+            border-radius: 1px;
+        }
+        @keyframes flowStreakMove {
+            0% { transform: translateX(-50%); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translateX(250%); opacity: 0; }
+        }
         .feature-block-content {
             padding: 0;
         }
@@ -752,6 +862,12 @@
             }
             .aerovoxel-grid {
                 grid-template-columns: 1fr;
+            }
+            .aerovoxel-comparison {
+                padding: 0 1rem;
+            }
+            .comparison-slider {
+                aspect-ratio: 4/3;
             }
             .physics-cards {
                 grid-template-columns: 1fr;
@@ -1197,10 +1313,7 @@
 
             <div class="feature-block">
                 <div class="feature-block-image">
-                    <div style="text-align:center;">
-                        <i class='bx bx-cog'></i>
-                        <div data-i18n="feat_fc_img">飞控系统示意图</div>
-                    </div>
+                    <img src="assets/images/bf_logo_black.svg" alt="Betaflight" class="fc-bf-logo">
                 </div>
                 <div class="feature-block-content">
                     <span class="feature-block-tag" data-i18n="feat_fc_tag">FLIGHT CONTROL</span>
@@ -1217,11 +1330,14 @@
             </div>
 
             <div class="feature-block reverse">
-                <div class="feature-block-image">
-                    <div style="text-align:center;">
-                        <i class='bx bx-atom'></i>
-                        <div data-i18n="feat_ph_img">物理引擎示意图</div>
-                    </div>
+                <div class="feature-block-image flow-visual">
+                    <span class="flow-text">Flow</span>
+                    <div class="flow-streak" style="top:15%; width:40%; animation-delay:0s;"></div>
+                    <div class="flow-streak" style="top:28%; width:60%; animation-delay:0.8s;"></div>
+                    <div class="flow-streak" style="top:42%; width:35%; animation-delay:1.5s;"></div>
+                    <div class="flow-streak" style="top:55%; width:50%; animation-delay:2.2s;"></div>
+                    <div class="flow-streak" style="top:68%; width:45%; animation-delay:1.0s;"></div>
+                    <div class="flow-streak" style="top:82%; width:55%; animation-delay:1.8s;"></div>
                 </div>
                 <div class="feature-block-content">
                     <span class="feature-block-tag" data-i18n="feat_ph_tag">PHYSICS</span>
@@ -1238,10 +1354,14 @@
             </div>
 
             <div class="feature-block">
-                <div class="feature-block-image">
-                    <div style="text-align:center;">
-                        <i class='bx bx-transfer'></i>
-                        <div data-i18n="feat_in_img">输入延迟示意图</div>
+                <div class="feature-block-image input-decoupling-visual">
+                    <i class='bx bx-bolt input-decoupling-icon'></i>
+                    <div class="input-rail">
+                        <div class="input-signal"></div>
+                    </div>
+                    <div class="input-separator"></div>
+                    <div class="render-rail">
+                        <div class="render-frame" id="renderFrame"></div>
                     </div>
                 </div>
                 <div class="feature-block-content">
@@ -1259,11 +1379,9 @@
             </div>
 
             <div class="feature-block reverse">
-                <div class="feature-block-image">
-                    <div style="text-align:center;">
-                        <i class='bx bx-palette'></i>
-                        <div data-i18n="feat_ed_img">编辑器示意图</div>
-                    </div>
+                <div class="feature-block-image progressive-img">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAKABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAZEAADAQEBAAAAAAAAAAAAAAAAAQIDITH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwDOwtpFz24LwF+FBN2mwFwCl//Z" alt="编辑器示意图" class="progressive-thumb">
+                    <img src="assets/images/TrackEditor.png" alt="编辑器示意图" class="progressive-full">
                 </div>
                 <div class="feature-block-content">
                     <span class="feature-block-tag" data-i18n="feat_ed_tag">EDITOR</span>
@@ -1394,6 +1512,34 @@
                 </div>
             </div>
 
+            <!-- AeroVoxel Comparison -->
+            <div class="aerovoxel-comparison">
+                <div class="comparison-header">
+                    <span class="comparison-label" data-i18n="aero_compare_label">AEROVOXEL 效果对比</span>
+                    <h3 class="comparison-title" data-i18n="aero_compare_title">体素化前后</h3>
+                    <p class="comparison-desc" data-i18n="aero_compare_desc">拖动滑块查看 AeroVoxel 实时体素化代理生成效果</p>
+                </div>
+                <div class="comparison-slider" id="comparisonSlider">
+                    <div class="comparison-image comparison-before">
+                        <div class="comparison-placeholder">
+                            <i class='bx bx-cube-alt'></i>
+                            <span data-i18n="aero_compare_after">体素化代理</span>
+                        </div>
+                    </div>
+                    <div class="comparison-image comparison-after">
+                        <div class="comparison-placeholder">
+                            <i class='bx bx-cube'></i>
+                            <span data-i18n="aero_compare_before">原始网格</span>
+                        </div>
+                    </div>
+                    <div class="comparison-divider" id="comparisonDivider">
+                        <div class="comparison-handle">
+                            <i class='bx bx-chevrons-left'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Physics Modules -->
             <div class="physics-cards">
                 <div class="physics-card fade-in">
@@ -1460,11 +1606,9 @@
     <section class="section" id="showcase">
         <div class="section-inner">
             <div class="feature-block">
-                <div class="feature-block-image">
-                    <div style="text-align:center;">
-                        <i class='bx bx-game'></i>
-                        <div data-i18n="show_img">游戏画面</div>
-                    </div>
+                <div class="feature-block-image progressive-img">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABsQAAMAAgMAAAAAAAAAAAAAAAABAgMhBBFB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/ALXyZ8ZkzZqvSM+JtrbHZUFqbjtgOA4Nf//Z" alt="游戏画面" class="progressive-thumb">
+                    <img src="assets/images/HUD.png" alt="游戏画面" class="progressive-full">
                 </div>
                 <div class="feature-block-content">
                     <span class="feature-block-tag" data-i18n="show_tag">EXPERIENCE</span>
@@ -1839,6 +1983,15 @@
             document.addEventListener('touchend', function() {
                 isDragging = false;
             });
+        })();
+
+        // Randomize render frame speed for input decoupling visual
+        (function() {
+            var frame = document.getElementById('renderFrame');
+            if (frame) {
+                var randomDuration = (2.5 + Math.random() * 2).toFixed(2) + 's';
+                frame.style.animationDuration = randomDuration;
+            }
         })();
 
         // i18n
