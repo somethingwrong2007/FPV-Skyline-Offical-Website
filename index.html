@@ -803,6 +803,66 @@
             0% { transform: scale(0.5); opacity: 0.8; }
             100% { transform: scale(1.2); opacity: 0; }
         }
+        /* Inertia / Center of Mass Demo */
+        .inertia-demo {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inertia-center {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-glow);
+            z-index: 2;
+            animation: inertiaPulse 2s ease-in-out infinite;
+        }
+        .inertia-mass {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 1px;
+            opacity: 0.5;
+        }
+        .inertia-mass:nth-child(2) { top: 8px; left: 12px; }
+        .inertia-mass:nth-child(3) { top: 12px; right: 10px; }
+        .inertia-mass:nth-child(4) { bottom: 10px; left: 18px; }
+        .inertia-mass:nth-child(5) { bottom: 8px; right: 12px; }
+        .inertia-mass:nth-child(6) { top: 22px; left: 6px; }
+        .inertia-mass:nth-child(7) { top: 28px; right: 6px; }
+        .inertia-orbit {
+            position: absolute;
+            border: 1.5px solid rgba(74, 158, 255, 0.15);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: inertiaSpin 2.5s linear infinite;
+        }
+        .inertia-orbit:nth-child(8) {
+            width: 38px;
+            height: 38px;
+        }
+        .inertia-orbit:nth-child(9) {
+            width: 50px;
+            height: 50px;
+            animation-direction: reverse;
+            animation-duration: 3.5s;
+            border-top-color: transparent;
+            border-bottom-color: var(--accent);
+        }
+        @keyframes inertiaSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes inertiaPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
         /* Mobile Menu */
         .mobile-menu {
             position: fixed;
@@ -1235,31 +1295,24 @@
                             </div>
                         </div>
                     </div>
-                <div class="aerovoxel-item">
-                    <span class="aerovoxel-item-number">04</span>
-                    <h4 data-i18n="aero_4_title"><i class='bx bx-crosshair'></i> 质心与转动惯量</h4>
-                    <p data-i18n="aero_4_desc">基于体素化网格自动计算质量分布、质心位置与转动惯量张量，无需手动输入物理参数，确保刚体动力学模拟的准确性。</p>
-                    <div class="aerovoxel-visual">
-                        <div class="voxel-grid-demo">
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell"></div>
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell"></div>
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell"></div>
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell"></div>
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell"></div>
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell"></div>
-                            <div class="voxel-cell active"></div>
-                            <div class="voxel-cell"></div>
+                    <div class="aerovoxel-item">
+                        <span class="aerovoxel-item-number">04</span>
+                        <h4 data-i18n="aero_4_title"><i class='bx bx-crosshair'></i> 质心与转动惯量</h4>
+                        <p data-i18n="aero_4_desc">基于体素化网格自动计算质量分布、质心位置与转动惯量张量，无需手动输入物理参数，确保刚体动力学模拟的准确性。</p>
+                        <div class="aerovoxel-visual">
+                            <div class="inertia-demo">
+                                <div class="inertia-center"></div>
+                                <div class="inertia-mass"></div>
+                                <div class="inertia-mass"></div>
+                                <div class="inertia-mass"></div>
+                                <div class="inertia-mass"></div>
+                                <div class="inertia-mass"></div>
+                                <div class="inertia-mass"></div>
+                                <div class="inertia-orbit"></div>
+                                <div class="inertia-orbit"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
 
