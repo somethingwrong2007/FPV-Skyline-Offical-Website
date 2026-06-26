@@ -1173,6 +1173,27 @@
             left: 0;
             width: 100%;
             height: 100%;
+            overflow: hidden;
+        }
+        .comparison-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .comparison-thumb {
+            filter: blur(8px);
+            transform: scale(1.05);
+        }
+        .comparison-full {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .comparison-full.loaded {
+            opacity: 1;
         }
         .comparison-before {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -1182,28 +1203,6 @@
             background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
             z-index: 2;
             clip-path: inset(0 50% 0 0);
-        }
-        .comparison-placeholder {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: var(--text-muted);
-        }
-        .comparison-placeholder i {
-            font-size: 3rem;
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-            opacity: 0.5;
-        }
-        .comparison-placeholder span {
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        .comparison-after .comparison-placeholder {
-            left: 25%;
         }
         .comparison-divider {
             position: absolute;
@@ -1526,16 +1525,12 @@
                 </div>
                 <div class="comparison-slider" id="comparisonSlider">
                     <div class="comparison-image comparison-before">
-                        <div class="comparison-placeholder">
-                            <i class='bx bx-cube-alt'></i>
-                            <span data-i18n="aero_compare_after">体素化代理</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABgQAQEAAwAAAAAAAAAAAAAAAAARAQIS/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDm9RmN6kkWldEAP//Z" alt="体素化代理" class="comparison-thumb">
+                        <img src="assets/images/Voxelization.png" alt="体素化代理" class="comparison-full">
                     </div>
                     <div class="comparison-image comparison-after">
-                        <div class="comparison-placeholder">
-                            <i class='bx bx-cube'></i>
-                            <span data-i18n="aero_compare_before">原始网格</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABkQAQADAQEAAAAAAAAAAAAAAAEAAgMREv/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AIMj3YJRvgZ0EZHWyPSNfW1jizYZ2ESEg//Z" alt="原始网格" class="comparison-thumb">
+                        <img src="assets/images/Non-voxelization.png" alt="原始网格" class="comparison-full">
                     </div>
                     <div class="comparison-divider" id="comparisonDivider">
                         <div class="comparison-handle">
@@ -2294,7 +2289,7 @@
         }
 
         // Progressive image loading: swap blurred thumb for full-res
-        document.querySelectorAll('.progressive-full').forEach(function(img) {
+        document.querySelectorAll('.progressive-full, .comparison-full').forEach(function(img) {
             if (img.complete) {
                 img.classList.add('loaded');
             } else {
