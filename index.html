@@ -102,6 +102,23 @@
         .nav-link:hover {
             color: var(--text-primary);
         }
+        .nav-group-links {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .nav-group-link {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+        .nav-group-link:hover {
+            background: rgba(74, 158, 255, 0.2);
+            color: var(--accent);
+        }
         .nav-cta {
             background: var(--accent);
             color: white;
@@ -1275,6 +1292,10 @@
             <a href="https://store.steampowered.com/news/app/4244680?updates=true" target="_blank" class="nav-link" data-i18n="nav_roadmap">更新路线图</a>
             <a href="https://b23.tv/szmZsx2" target="_blank" class="nav-link" data-i18n="nav_community">社区</a>
             <a href="https://bugnet.io/roadmap/0e4f84-fpvskyline" target="_blank" class="nav-link" data-i18n="nav_bugnet">Bug 追踪</a>
+            <div class="nav-group-links">
+                <a href="https://discord.gg/qP5bTGYyXC" target="_blank" class="nav-link nav-group-link" title="Discord" data-i18n="nav_discord">Discord</a>
+                <a href="https://qm.qq.com/q/QhVL3rz6E2" target="_blank" class="nav-link nav-group-link" title="QQ" data-i18n="nav_qq">QQ</a>
+            </div>
             <button class="lang-toggle" id="langToggle" title="切换语言">中 / EN</button>
         </div>
         <div class="mobile-actions">
@@ -1290,6 +1311,8 @@
             <a href="https://store.steampowered.com/app/4244680/FPV_Skyline/" target="_blank" class="mobile-menu-link" data-i18n="hero_steam">Steam 下载</a>
             <a href="https://bugnet.io/roadmap/0e4f84-fpvskyline" target="_blank" class="mobile-menu-link" data-i18n="nav_bugnet">Bug 追踪</a>
             <a href="https://b23.tv/szmZsx2" target="_blank" class="mobile-menu-link" data-i18n="nav_community">社区</a>
+            <a href="https://discord.gg/qP5bTGYyXC" target="_blank" class="mobile-menu-link" data-i18n="nav_discord">Discord</a>
+            <a href="https://qm.qq.com/q/QhVL3rz6E2" target="_blank" class="mobile-menu-link" data-i18n="nav_qq">QQ</a>
         </div>
     </nav>
 
@@ -2024,6 +2047,8 @@
                 nav_roadmap: '更新路线图',
                 nav_community: '社区',
                 nav_bugnet: 'Bug 追踪',
+                nav_discord: 'Discord',
+                nav_qq: 'QQ',
                 hero_title: '真实飞行<br><span class="accent">即刻开始</span>',
                 hero_desc: '基于虚幻引擎 Chaos 物理与 1000Hz 飞控模拟，还原真实操控手感。连接遥控器，即刻起飞。',
                 hero_steam: 'Steam 下载',
@@ -2151,6 +2176,8 @@
                 nav_roadmap: 'Roadmap',
                 nav_community: 'Community',
                 nav_bugnet: 'Bug Tracker',
+                nav_discord: 'Discord',
+                nav_qq: 'QQ',
                 hero_title: 'Real Flight<br><span class="accent">Starts Now</span>',
                 hero_desc: 'Based on Unreal Engine Chaos physics and 1000Hz flight control simulation, restoring authentic control feel. Connect your transmitter and take off.',
                 hero_steam: 'Steam Download',
