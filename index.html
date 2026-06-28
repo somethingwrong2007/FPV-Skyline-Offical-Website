@@ -2272,7 +2272,10 @@
             }
         };
 
-        var currentLang = 'zh';
+        var currentLang = (function() {
+            var lang = navigator.language || navigator.userLanguage || 'zh';
+            return lang.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+        })();
         var langToggle = document.getElementById('langToggle');
 
         function updateLanguage(lang) {
@@ -2320,7 +2323,7 @@
         });
 
         // Apply default language on page load
-        updateLanguage('zh');
+        updateLanguage(currentLang);
     </script>
 </body>
 </html>
